@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+
+    @auth
+        <h1>You are logged in. Wohoo!!!!</h1>
+        <form action="/logout" method="POST">
+            @csrf
+            <button>log out</button>
+        </form>
+    @else
+    {{-- register --}}
     <div style="border: 3px solid black;">
         <h2>Register</h2>
         <form action="/register" 
@@ -19,5 +28,21 @@
             <input type="submit" value="Register">
         </form>
     </div>
+
+    {{-- login --}}
+    <div style="border: 3px solid black; margin:30px 0;">
+        <h2>Login</h2>
+        <form action="/login" 
+        method="POST"
+        style="margin-bottom:5px ; margin-left:10px;">
+        <!-- @csrf is to prevent a csrf attack -->
+            @csrf
+            <input type="text" placeholder="name" name="loginname">
+            <input type="password" placeholder="password" name="loginpassword">
+            <input type="submit" value="log in">
+        </form>
+    </div>
+
+    @endauth
 </body>
 </html>
