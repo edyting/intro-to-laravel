@@ -32,9 +32,10 @@
                 <h3>{{$post['title']}}</h3>
                 {{$post['body']}}
             </div>
+            @endforeach
         </div>
 
-        
+
     @else
     {{-- register --}}
     <div style="border: 3px solid black;">
